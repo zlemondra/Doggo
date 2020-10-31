@@ -16,10 +16,6 @@
             android:label="@string/title_activity_shelter_profile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ShelterSignUpActivity" />
-        <activity
-            android:name=".HumanAccountPage"
-            android:label="@string/title_activity_human_account_page"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ShelterWelcomeActivity" />
         <activity android:name=".HumanUserWelcomeActivity" />
         <activity
