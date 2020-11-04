@@ -105,6 +105,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         break;
                     case 2:
                         //do something for shelter registration
+                        intent = new Intent(MainActivity.this, HumanUserSignUpActivity.class);
+                        startActivity(intent);
                         break;
                     default:
                         Toast.makeText(getApplicationContext(), "Please select a User Type to continue ", Toast.LENGTH_LONG).show();
