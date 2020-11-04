@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //Create a database to hold the tables
         SQLiteDatabase ggdDatabase = openOrCreateDatabase("ggd_Database", MODE_PRIVATE, null);
         ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS HumanUsers(FirstName VARCHAR, LastName VARCHAR, Email VARCHAR, Password VARCHAR, ID VARCHAR);");
-        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS dogShelter(ShelterName VARCHAR, LocationPoint VARCHAR,  Email VARCHAR, Phone VARCHAR, Password VARCHAR, ID VARCHAR);");
-        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS dogprofile(DogName VARCHAR, Gender VARCHAR,  breed VARCHAR, Age VARCHAR, ID VARCHAR, ShelterID VARCHAR);");
+        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS dogShelter(ID VARCHAR, ShelterName VARCHAR, LocationPoint VARCHAR,  Email VARCHAR, Phone VARCHAR, Password VARCHAR, ID VARCHAR);");
+        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS dogprofile(DogName VARCHAR, Gender VARCHAR,  breed VARCHAR, Age VARCHAR, Color VARCHAR, Size VARCHAR, Bio VARCHAR, ID VARCHAR, ShelterID VARCHAR);");
         cursor = ggdDatabase.rawQuery("SELECT * FROM HumanUsers;", null);
         if (cursor.getCount() == 0) {
             ggdDatabase.execSQL("INSERT INTO HumanUsers VALUES('admin', 'admin', 'amulkey21@yahoo.com', 'admin', '0');");
@@ -62,6 +62,23 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Delete this switch statement on release
+                switch (userChoice) {
+                    case 1:
+                        intent = new Intent(MainActivity.this, HumanUserWelcomeActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        intent = new Intent(MainActivity.this, ShelterWelcomeActivity.class);
+                        startActivity(intent);
+                        break;
+                    default:
+                        Toast.makeText(getApplicationContext(), "Please select a User Type to continue ", Toast.LENGTH_LONG).show();
+                        break;
+                }//End of switch to decide with sign up activity to go to
+
+                /* Commented out until release
+
                 email = etEmail.getText().toString().trim();
                 password = etPassword.getText().toString().trim();
 
@@ -92,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 }else   {
                     Toast.makeText(getApplicationContext(), "All fields are required to continue ", Toast.LENGTH_LONG).show();
                 }//End of if/else to check that all fields have values
+                 */
             }//End of method onClick
         });//End of btnSignIn.setOnClickListener
 
