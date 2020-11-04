@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewDogsActivity">
+    tools:context=".ViewDogsActivity"
+    android:baselineAligned="false">
 
-</android.support.constraint.ConstraintLayout>
+    <fragment
+        android:id="@+id/fragment_dog_list_"
+        android:name="com.example.mainscreen.DogListFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:layout="@layout/fragment_dog_list_list" />
+
+    <fragment
+        android:id="@+id/fragment_dog_info_"
+        android:name="com.example.mainscreen.DogInfoFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        tools:layout="@layout/fragment_dog_info" />
+</LinearLayout>

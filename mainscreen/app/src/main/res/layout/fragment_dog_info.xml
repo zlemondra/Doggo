@@ -1,14 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_dog_infor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DogInfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/iv_dog_image"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/dog_image"
+        android:src="@drawable/newdogtransparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tv_view_dog_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/dog_name"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_dog_image" />
+
+    <TextView
+        android:id="@+id/tv_view_dog_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/age"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_view_dog_name"
+        app:layout_constraintTop_toBottomOf="@+id/iv_dog_image" />
+
+    <TextView
+        android:id="@+id/tv_view_dog_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/gender"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_view_dog_name" />
+
+    <TextView
+        android:id="@+id/tv_view_dog_breed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/breed"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_view_dog_gender"
+        app:layout_constraintTop_toBottomOf="@+id/tv_view_dog_age" />
+
+    <TextView
+        android:id="@+id/tv_view_dog_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/color"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_view_dog_gender" />
+
+    <TextView
+        android:id="@+id/tv_view_dog_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/size"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_view_dog_color"
+        app:layout_constraintTop_toBottomOf="@+id/tv_view_dog_breed" />
+
+    <TextView
+        android:id="@+id/tv_view_dog_bio"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/dog_bio"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_view_dog_size" />
+
+</android.support.constraint.ConstraintLayout>

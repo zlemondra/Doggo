@@ -1,69 +1,67 @@
 package com.example.mainscreen;
 
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.mainscreen.dummy.DummyContent;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import java.util.Objects;
+//import com.example.mainscreen.dummy.DummyContent;
+import java.util.ArrayList;
+import java.util.Objects;
 
 /**
- * A fragment representing a list of Items.
+ * A fragment representing a list of Dogs.
  */
-public class DogListFragment extends Fragment {
+public class DogListFragment extends ListFragment {
+    //Class Variables
+    ListView viewDogs;
+    ItemSelected activity;
+    Intent intent;
+    SQLiteDatabase ggdDatabase;
+    Cursor cursor;
+    ArrayList<String> dogNames;
 
-    // TODO: Customize parameter argument names
-    private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
-    private int mColumnCount = 1;
+    public interface ItemSelected   {
+        void onItemSelected(int index);
+    }//End of interface itemSelected
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
     public DogListFragment() {
-    }
-
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
-    public static DogListFragment newInstance(int columnCount) {
-        DogListFragment fragment = new DogListFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
-    }
+        // Required empty public constructor
+    }//End of default constructor method
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onAttach(Context context) {
+        super.onAttach(context);
 
-        if (getArguments() != null) {
-            mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
-        }
-    }
+        activity = (ItemSelected) context;
+    }//End of method onAttach
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_dog_list_list, container, false);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS));
-        }
-        return view;
-    }
-}
+        dogNames = getArguments().getStringArrayList("names");
+
+        //Add values to the list
+        setListAdapter(new ArrayAdapter<String>(Objects.requireNonNull(getActivity()), android.R.layout.simple_list_item_1, dogNames));
+    }//End of method onActivityCreated
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+
+        activity.onItemSelected(position);
+    }//End of method onListItemClick
+
+}//End of fragment DogListFragment

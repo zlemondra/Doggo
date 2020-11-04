@@ -13,8 +13,10 @@
         android:ems="10"
         android:inputType="textShortMessage|textPersonName|text"
         android:text="Breed"
+        android:visibility="visible"
         tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="155dp" />
+        tools:layout_editor_absoluteY="155dp"
+        tools:visibility="visible" />
 
     <EditText
         android:id="@+id/genderInput"
