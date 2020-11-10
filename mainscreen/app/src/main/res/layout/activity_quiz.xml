@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,71 +10,85 @@
         android:id="@+id/breedInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="155dp"
         android:ems="10"
         android:inputType="textShortMessage|textPersonName|text"
         android:text="Breed"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="155dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
     <EditText
         android:id="@+id/genderInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="236dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Gender"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="236dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/sizeInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="327dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Size"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="327dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/colorInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="414dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Color"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="414dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/ageInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="496dp"
         android:ems="10"
         android:inputType="number"
         android:text="Age"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="496dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="51dp"
         android:text="SET DOG PREFERENCE"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="51dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/savebttn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="611dp"
         android:background="@color/colorPrimary"
         android:text="Save Preferences"
         android:textColor="@color/colorAccent"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="611dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
