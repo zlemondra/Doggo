@@ -47,8 +47,8 @@ public class quiz extends Activity {
                 ggdDatabase.close();
 
                 extras.putStringArray("Dog IDs", dogIDs);
-                // LAUREN, CHANGE THE CLASS TO YOUR DOG CLASS
-                intent = new Intent(quiz.this, MainActivity.class); // will change when lauren updates his part
+
+                intent = new Intent(quiz.this, QuizResultsActivity.class);
                 intent.putExtras(extras);
                 startActivity(intent);
             }//End of method onClick

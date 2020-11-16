@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dogNameResult"
+            android:layout_width="284dp"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:baselineAligned="false"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#FFF81F"
+            app:fontFamily="sans-serif-black" />
+
+        <TextView
+            android:id="@+id/dogBreedResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dogNameResult"
+            android:background="#000000"
+            android:baselineAligned="false"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#FFFFFF"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/dogGenderResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dogBreedResult"
+            android:background="#000000"
+            android:baselineAligned="false"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#FFFFFF"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/dogAgeResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dogGenderResult"
+            android:background="#000000"
+            android:baselineAligned="false"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#FFFFFF"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <Button
+            android:id="@+id/shelterContactInfo"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/dogNameResult"
+            android:background="#FFF81F"
+            android:clickable="true"
+            android:fontFamily="sans-serif-black"
+            android:text="Contact Shelter"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
