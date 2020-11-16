@@ -21,12 +21,13 @@ public class quiz extends Activity {
     public Cursor returnMatchesIDs(){
         return this.cursor;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //save button initization
-        savebttn = (Button) findViewById(R.id.savebttn);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+        savebttn = (Button) findViewById(R.id.savebttn);
 
         //textbox entries
         breed = (EditText) findViewById(R.id.breedInput);
@@ -34,6 +35,7 @@ public class quiz extends Activity {
         color = (EditText) findViewById(R.id.colorInput);
         size = (EditText) findViewById(R.id.sizeInput);
         age = (EditText) findViewById(R.id.ageInput);
+
         savebttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
