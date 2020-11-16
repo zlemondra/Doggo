@@ -13,19 +13,19 @@
 // limitations under the License.
 
 
-package com.example.mainscreen;
+        package com.example.mainscreen;
 
-import android.Manifest;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.widget.Toast;
+        import android.Manifest;
+        import android.app.AlertDialog;
+        import android.app.Dialog;
+        import android.content.DialogInterface;
+        import android.content.pm.PackageManager;
+        import android.os.Bundle;
+        import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.DialogFragment;
+        import androidx.appcompat.app.AppCompatActivity;
+        import androidx.core.app.ActivityCompat;
+        import androidx.fragment.app.DialogFragment;
 
 /**
  * Utility class for access to runtime permissions.
