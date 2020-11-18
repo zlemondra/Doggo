@@ -31,7 +31,9 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
+
+            android:label="@string/title_activity_maps"></activity>
+
         <activity android:name=".ViewMapPage" />
         <activity android:name=".ShelterProfilePage" />
         <activity android:name=".HumanUserSignUpActivity" />
