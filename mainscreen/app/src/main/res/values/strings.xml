@@ -61,4 +61,6 @@
     <string name="permission_required_toast">Please</string>
     <string name="permission_rationale_location">Because</string>
     <string name="location_permission_denied">Denied.</string>
+    <string name="view_map">View Map</string>
+    <string name="hello_shelter">Hello Shelter!</string>
 </resources>

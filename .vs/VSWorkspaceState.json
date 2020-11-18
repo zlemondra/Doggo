@@ -1,6 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\mainscreen",
+    "\\mainscreen\\app",
+    "\\mainscreen\\app\\src",
+    "\\mainscreen\\app\\src\\main",
+    "\\mainscreen\\app\\src\\main\\java",
+    "\\mainscreen\\app\\src\\main\\java\\com",
+    "\\mainscreen\\app\\src\\main\\java\\com\\example",
+    "\\mainscreen\\app\\src\\main\\java\\com\\example\\mainscreen",
+    "\\mainscreen\\app\\src\\main\\res"
   ],
+  "SelectedNode": "\\mainscreen\\app\\src\\main\\java\\com\\example\\mainscreen\\HumanUserWelcomeActivity.java",
   "PreviewInSolutionExplorer": false
 }

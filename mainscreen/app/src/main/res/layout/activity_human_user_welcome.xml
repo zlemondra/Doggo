@@ -31,8 +31,8 @@
         android:id="@+id/btn_view_matches"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="32dp"
         android:text="@string/view_matches"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_match_me" />
@@ -41,9 +41,9 @@
         android:id="@+id/btn_view_map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginBottom="151dp"
-        android:text="View Map"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/view_map"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_view_matches" />
 </androidx.constraintlayout.widget.ConstraintLayout>
