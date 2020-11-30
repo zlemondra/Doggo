@@ -10,12 +10,12 @@
         android:id="@+id/iv_app_name"
         android:layout_width="wrap_content"
         android:layout_height="137dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="63dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:contentDescription="@string/ggd_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/newlogo"
-        android:contentDescription="@string/ggd_logo" />
+        app:srcCompat="@drawable/newlogo" />
 
     <EditText
         android:id="@+id/etEmail"
