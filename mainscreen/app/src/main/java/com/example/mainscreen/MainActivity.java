@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         startActivity(intent);
                         break;
                     case 2:
-                        intent = new Intent(MainActivity.this, ShelterWelcomeActivity.class);
+                        intent = new Intent(MainActivity.this, ShelterProfilePage.class);
                         startActivity(intent);
                         break;
                     default:
