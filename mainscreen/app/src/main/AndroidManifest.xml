@@ -10,6 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!-- <activity
+        <activity android:name=".ViewShelterDogs"></activity>
+        <activity
             android:name=".ViewExistingShelterDogs"
             android:label="@string/title_activity_view_existing_shelter_dogs">
             <intent-filter>
@@ -67,6 +69,8 @@
         <!-- <uses-library
             android:name="com.google.android.wearable"
             android:required="true" /> -->
+            android:name="com.google.android.wearable"
+            android:required="true" />
     </application>
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
