@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!-- <activity
         <activity android:name=".ViewShelterDogs"></activity>
         <activity
             android:name=".ViewExistingShelterDogs"
@@ -18,7 +19,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> -->
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
@@ -63,6 +64,11 @@
             android:value="@string/google_maps_key" />
 
         <uses-library
+            android:name="com.google.android.maps"
+            android:required="false"/>
+        <!-- <uses-library
+            android:name="com.google.android.wearable"
+            android:required="true" /> -->
             android:name="com.google.android.wearable"
             android:required="true" />
     </application>

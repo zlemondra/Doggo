@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
         //Create a database to hold the tables
-        SQLiteDatabase ggdDatabase = openOrCreateDatabase("ggd_Database", MODE_PRIVATE, null);
+        final SQLiteDatabase ggdDatabase = openOrCreateDatabase("ggd_Database", MODE_PRIVATE, null);
         ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS HumanUsers(FirstName VARCHAR, LastName VARCHAR, Email VARCHAR, Password VARCHAR, ID VARCHAR);");
         ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS dogShelter(ShelterName VARCHAR, LocationPoint VARCHAR,  Email VARCHAR, Phone VARCHAR, Password VARCHAR, ID VARCHAR);");
         ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS dogprofile(DogName VARCHAR, Gender VARCHAR,  breed VARCHAR, Age VARCHAR, Color VARCHAR, Size VARCHAR, Bio VARCHAR, ID VARCHAR, ShelterID VARCHAR);");
@@ -67,10 +67,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 //Delete this switch statement on release
                 switch (userChoice) {
                     case 1:
+                        ggdDatabase.close();
                         intent = new Intent(MainActivity.this, HumanUserWelcomeActivity.class);
                         startActivity(intent);
                         break;
                     case 2:
+                        ggdDatabase.close();
                         intent = new Intent(MainActivity.this, ShelterProfilePage.class);
                         startActivity(intent);
                         break;
@@ -120,10 +122,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View v) {
                 switch (userChoice) {
                     case 1:
+                        ggdDatabase.close();
                         intent = new Intent(MainActivity.this, HumanUserSignUpActivity.class);
                         startActivity(intent);
                         break;
                     case 2:
+                        ggdDatabase.close();
                         //do something for shelter registration
                         intent = new Intent(MainActivity.this, ShelterSignUpActivity.class);
                         startActivity(intent);

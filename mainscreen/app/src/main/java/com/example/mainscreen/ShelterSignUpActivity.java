@@ -15,7 +15,6 @@ public class ShelterSignUpActivity extends AppCompatActivity {
     //Variable Declarations
     Button createAccountButton;
     Cursor cursor;
-    SQLiteDatabase ggdDatabase;
     EditText shelterName, shelterAddress, shelterPhone, shelterEmail, shelterPassword, retypeShelterPassword;
 
     @Override
@@ -30,6 +29,7 @@ public class ShelterSignUpActivity extends AppCompatActivity {
         shelterEmail = (EditText) findViewById(R.id.shelterEmailInput);
         shelterPassword = (EditText) findViewById(R.id.shelterPasswordInput);
         retypeShelterPassword = (EditText) findViewById(R.id.reenterShelterPasswordInput);
+        final SQLiteDatabase ggdDatabase = openOrCreateDatabase("ggd_Database", MODE_PRIVATE, null);
 
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override

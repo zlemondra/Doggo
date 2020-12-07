@@ -23,6 +23,8 @@ public class ShelterProfilePage extends AppCompatActivity {
         shelterName = findViewById(R.id.shelterName);
         shelterEmail = findViewById(R.id.shelterEmailAddress);
         shelterPhone = findViewById(R.id.shelterPhoneNumber);
+        newDog = (Button) findViewById(R.id.createProfileButton);
+        viewDog = (Button) findViewById(R.id.viewProfileButton);
         newDog = (Button) findViewById(R.id.btn_sign_in);
         viewDog = (Button) findViewById(R.id.btn_sign_up);
         newDog.setOnClickListener(new View.OnClickListener() {
