@@ -8,9 +8,8 @@
     "\\mainscreen\\app\\src\\main\\java",
     "\\mainscreen\\app\\src\\main\\java\\com",
     "\\mainscreen\\app\\src\\main\\java\\com\\example",
-    "\\mainscreen\\app\\src\\main\\java\\com\\example\\mainscreen",
-    "\\mainscreen\\app\\src\\main\\res"
+    "\\mainscreen\\app\\src\\main\\java\\com\\example\\mainscreen"
   ],
-  "SelectedNode": "\\mainscreen\\app\\src\\main\\java\\com\\example\\mainscreen\\HumanUserWelcomeActivity.java",
+  "SelectedNode": "\\.DS_Store",
   "PreviewInSolutionExplorer": false
 }

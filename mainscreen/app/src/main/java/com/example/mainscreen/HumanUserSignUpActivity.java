@@ -14,7 +14,6 @@ public class HumanUserSignUpActivity extends AppCompatActivity {
     //Variable Declarations
     Button btnSubmit;
     Cursor cursor;
-    SQLiteDatabase ggdDatabase;
     EditText etFirst, etLast, etPassword, etRPassword, etEmail;
 
     @Override
@@ -29,6 +28,7 @@ public class HumanUserSignUpActivity extends AppCompatActivity {
         etPassword = (EditText) findViewById(R.id.et_password);
         etRPassword = (EditText) findViewById(R.id.et_rPassword);
         etEmail = (EditText) findViewById(R.id.et_email);
+        final SQLiteDatabase ggdDatabase = openOrCreateDatabase("ggd_Database", MODE_PRIVATE, null);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
