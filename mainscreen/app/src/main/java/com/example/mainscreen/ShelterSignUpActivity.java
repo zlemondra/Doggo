@@ -29,7 +29,7 @@ public class ShelterSignUpActivity extends AppCompatActivity {
         shelterEmail = (EditText) findViewById(R.id.shelterEmailInput);
         shelterPassword = (EditText) findViewById(R.id.shelterPasswordInput);
         retypeShelterPassword = (EditText) findViewById(R.id.reenterShelterPasswordInput);
-        final SQLiteDatabase ggdDatabase = openOrCreateDatabase("ggd_Database", MODE_PRIVATE, null);
+        final SQLiteDatabase ggdDatabase = openOrCreateDatabase("ggd.db", MODE_PRIVATE, null);
 
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +44,7 @@ public class ShelterSignUpActivity extends AppCompatActivity {
                 }
                 else  if(!shelterName.getText().toString().trim().isEmpty()  && !shelterAddress.getText().toString().trim().isEmpty() && !shelterPhone.getText().toString().trim().isEmpty() &&
                         !shelterEmail.getText().toString().trim().isEmpty() && !shelterPassword.getText().toString().trim().isEmpty() && !retypeShelterPassword.getText().toString().trim().isEmpty())                    {
-                    ggdDatabase.execSQL("INSERT INTO dogShelters VALUES('" + shelterName.getText().toString().trim() + "', '" + shelterAddress.getText().toString().trim() + "', '" + shelterPhone.getText().toString().trim() + "', '" + shelterEmail.getText().toString().trim() +
+                    ggdDatabase.execSQL("INSERT INTO DogShelters VALUES('" + shelterName.getText().toString().trim() + "', '" + shelterAddress.getText().toString().trim() + "', '" + shelterPhone.getText().toString().trim() + "', '" + shelterEmail.getText().toString().trim() +
                             "', '" + shelterPassword.getText().toString().trim() + ");");
                 }
                 else    {
