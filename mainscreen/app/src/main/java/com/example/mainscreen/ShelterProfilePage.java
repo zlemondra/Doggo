@@ -25,10 +25,13 @@ public class ShelterProfilePage extends AppCompatActivity {
         shelterPhone = findViewById(R.id.shelterPhoneNumber);
         newDog = (Button) findViewById(R.id.createProfileButton);
         viewDog = (Button) findViewById(R.id.viewProfileButton);
+        newDog = (Button) findViewById(R.id.btn_sign_in);
+        viewDog = (Button) findViewById(R.id.btn_sign_up);
         newDog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(ShelterProfilePage.this, DogProfileSubmitActivity.class);
+
                 startActivity(intent);
             }
         });
@@ -36,6 +39,7 @@ public class ShelterProfilePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(ShelterProfilePage.this, DogProfileSubmitActivity.class);
+
                 startActivity(intent);
             }
         });
