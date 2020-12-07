@@ -1,4 +1,3 @@
-/*
 package com.example.mainscreen;
 
 import android.content.ContentValues;
@@ -10,15 +9,14 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(@Nullable Context context) {
-        super(context, "ggd_Database.db", null, 1);
+        super(context, "ggd.db", null, 1);
     }//End of the default constructor
 
     @Override
     public void onCreate(SQLiteDatabase ggdDatabase) {
-        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS HumanUsers(FirstName TEXT, LastName TEXT, Email TEXT, Password TEXT);");//Tables come with a rowid by default
-        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS DogShelter(ShelterName TEXT, LocationPoint TEXT,  Email TEXT, Phone TEXT, Password TEXT);");//A rowid is made by default
-        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS DogProfile(DogName TEXT, Gender TEXT,  Breed TEXT, Age Integer, Color TEXT, Size TEXT, Bio TEXT, ShelterID INTEGER);");//Use the rowid instead of an id
-
+        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS HumanUsers(FirstName VARCHAR, LastName VARCHAR, Email VARCHAR, Password VARCHAR);");
+        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS DogShelter(ShelterName VARCHAR, LocationPoint VARCHAR,  Email VARCHAR, Phone VARCHAR, Password VARCHAR, ID VARCHAR);");
+        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS DogProfile(DogName VARCHAR, Gender VARCHAR,  breed VARCHAR, Age VARCHAR, Color VARCHAR, Size VARCHAR, Bio VARCHAR, ID VARCHAR, ShelterID VARCHAR);");
     }//End of method onCreate to initially create the database
 
     @Override
@@ -46,11 +44,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase ggdDatabase = this.getWritableDatabase();
         ContentValues cv2 = new ContentValues();
 
-        cv2.put("ShelterName", sn);
-        cv2.put("LocationPoint", lp);
-        cv2.put("Email", em);
-        cv2.put("Phone", pn);
-        cv2.put("Password", pw);
+        cv2.put("ShelterName", "'"+sn+"'");
+        cv2.put("LocationPoint", "'"+lp+"'");
+        cv2.put("Email", "'"+em+"'");
+        cv2.put("Phone", "'"+pn+"'");
+        cv2.put("Password", "'"+pw+"'");
 
         ggdDatabase.insert("DogShelter", null, cv2);
         ggdDatabase.close();
@@ -75,5 +73,3 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }//End of the method addOneToDogProfile
 }//End of class DatabaseHelper
-
- */

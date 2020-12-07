@@ -14,7 +14,9 @@ public class HumanUserSignUpActivity extends AppCompatActivity {
     //Variable Declarations
     Button btnSubmit;
     Cursor cursor;
+    DatabaseHelper db;
     EditText etFirst, etLast, etPassword, etRPassword, etEmail;
+    String first, last, email, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +30,14 @@ public class HumanUserSignUpActivity extends AppCompatActivity {
         etPassword = (EditText) findViewById(R.id.et_password);
         etRPassword = (EditText) findViewById(R.id.et_rPassword);
         etEmail = (EditText) findViewById(R.id.et_email);
-        final SQLiteDatabase ggdDatabase = openOrCreateDatabase("ggd_Database", MODE_PRIVATE, null);
+        final SQLiteDatabase ggdDatabase = openOrCreateDatabase("ggd.db", MODE_PRIVATE, null);
+        db = new DatabaseHelper(HumanUserSignUpActivity.this);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v)    {
-                cursor = ggdDatabase.rawQuery("SELECT * FROM HumanUsers WHERE FirstName = " + etFirst.getText().toString() +
-                        " AND LastName = " + etLast.getText().toString() + " AND Email = " + etEmail.getText().toString() + ";", null);
+                cursor = ggdDatabase.rawQuery("SELECT * FROM HumanUsers WHERE FirstName = '" + etFirst.getText().toString() +
+                        "' AND LastName = '" + etLast.getText().toString() + "' AND Email = '" + etEmail.getText().toString() + "';", null);
                 if (cursor.getCount() > 0)  {
                     Toast.makeText(getApplicationContext(), "User already exists", Toast.LENGTH_SHORT).show();
                 }//End of if statement reached when the user is already in the database
@@ -43,8 +46,12 @@ public class HumanUserSignUpActivity extends AppCompatActivity {
                 }//End of else statements when passords do no match
                 else  if(!etFirst.getText().toString().trim().isEmpty() && !etLast.getText().toString().trim().isEmpty() && !etPassword.getText().toString().trim().isEmpty() &&
                         !etRPassword.getText().toString().trim().isEmpty() && !etEmail.getText().toString().trim().isEmpty())                    {
-                    ggdDatabase.execSQL("INSERT INTO HumanUsers VALUES('" + etFirst.getText().toString().trim() + "', '" + etLast.getText().toString().trim() + "', '" + etPassword.getText().toString().trim() +
-                            "', '" + etEmail.getText().toString().trim() + ");");
+                    first = etFirst.getText().toString().trim();
+                    last = etLast.getText().toString().trim();
+                    email = etEmail.getText().toString().trim();
+                    pass = etPassword.getText().toString().trim();
+                    db.addOneToHumanUser(first, last, email, pass);
+                    //ggdDatabase.execSQL("INSERT INTO HumanUsers VALUES('" + first + "', '" + last + "', '" + email + "', '" + pass + "');");
                 }//End of else clause to add a new restaurant to the list
                 else    {
                     Toast.makeText(getApplicationContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
