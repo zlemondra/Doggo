@@ -50,7 +50,7 @@ public class DogListFragment extends ListFragment {
         dogNames = getArguments().getStringArrayList("names");
 
         //Add values to the list
-        setListAdapter(new ArrayAdapter<String>(Objects.requireNonNull(getActivity()), android.R.layout.simple_list_item_1, dogNames));
+        setListAdapter(new ArrayAdapter<String>(requireActivity(), android.R.layout.simple_list_item_1, dogNames));
     }//End of method onActivityCreated
 
     @Override

@@ -58,6 +58,6 @@ public class DogInfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dog_info, container, false);
+        return inflater.inflate(R.layout.fragment_dog_profile_item, container, false);
     }
 }

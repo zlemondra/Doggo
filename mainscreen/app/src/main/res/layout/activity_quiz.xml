@@ -4,18 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".quiz">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="51dp"
-        android:text="SET DOG PREFERENCE"
-        android:textSize="30sp"
+        android:layout_marginBottom="53dp"
+        android:background="#131313"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:paddingLeft="53dp"
+            android:paddingTop="18dp"
+            android:text="Set Dog Preferences"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="130dp" />
+    </androidx.appcompat.widget.Toolbar>
+
 
     <Button
         android:id="@+id/savebttn"

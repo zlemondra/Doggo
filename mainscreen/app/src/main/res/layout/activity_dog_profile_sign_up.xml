@@ -3,7 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="53dp"
+        android:background="#131313"
+        app:layout_constraintBottom_toTopOf="@+id/shelterNameInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:paddingLeft="60dp"
+            android:paddingTop="18dp"
+            android:text="Create Dog Profile"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="130dp" />
+    </androidx.appcompat.widget.Toolbar>
 
     <EditText
         android:id="@+id/et_dog_age"
@@ -39,13 +63,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="128dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/dog_name"
         android:inputType="textPersonName"
         android:text="@string/dog_name"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,17 +92,18 @@
         android:id="@+id/btn_submit_dog_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="27dp"
+        android:background="#FFF81F"
         android:text="@string/submit"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_dog_bio" />
 
     <EditText
         android:id="@+id/et_dog_bio"
-        android:layout_width="243dp"
-        android:layout_height="192dp"
+        android:layout_width="250dp"
+        android:layout_height="120dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="4dp"
         android:ems="10"
@@ -86,11 +111,13 @@
         android:importantForAutofill="no"
         android:inputType="textShortMessage|textLongMessage"
         android:text="@string/dog_bio"
+        android:textAlignment="viewStart"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_dog_size" />
 
     <EditText
         android:id="@+id/et_dog_gender"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
@@ -101,8 +128,7 @@
         android:inputType="text"
         android:text="@string/gender"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_dog_color"
-        android:layout_width="wrap_content" />
+        app:layout_constraintTop_toBottomOf="@+id/et_dog_color" />
 
     <EditText
         android:id="@+id/et_dog_size"

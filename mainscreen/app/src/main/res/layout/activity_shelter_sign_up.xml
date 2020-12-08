@@ -1,186 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000">
+    android:background="#000000"
+    android:orientation="vertical"
+    tools:context=".ShelterSignUpActivity">
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="53dp"
+        android:background="#131313"
+        app:layout_constraintBottom_toTopOf="@+id/shelterNameInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:paddingLeft="32dp"
+            android:paddingTop="18dp"
+            android:text="Create Shelter Account"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="130dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/shelterNameInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="128dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="Shelter Name"
+        android:inputType="text"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/createAccountHeader"
-            android:layout_width="match_parent"
-            android:layout_height="76dp"
-            android:background="#fff81f"
-            android:baselineAligned="false"
-            android:fontFamily="sans-serif-black"
-            android:gravity="center"
-            android:text="@string/create_shelter_account"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#000000" />
+    <EditText
+        android:id="@+id/shelterAddressInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/address"
+        android:inputType="textPostalAddress"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shelterNameInput" />
 
+    <EditText
+        android:id="@+id/shelterPhoneNumberInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/phone_number"
+        android:inputType="phone"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shelterAddressInput" />
 
-        <TextView
-            android:id="@+id/shelterName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="30dp"
-            android:baselineAligned="false"
-            android:text="@string/enter_name_of_shelter"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#FFFFFF" />
+    <EditText
+        android:id="@+id/shelterEmailInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/email_address"
+        android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shelterPhoneNumberInput" />
 
-        <EditText
-            android:id="@+id/shelterNameInput"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:autofillHints=""
-            android:background="@drawable/text_lines_for_shelter_sign_in"
-            android:ems="25"
-            android:hint="@string/name"
-            android:inputType="text" />
-
-        <TextView
-            android:id="@+id/shelterAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/enter_address_of_the_shelter"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/shelterAddressInput"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:autofillHints=""
-            android:background="@drawable/text_lines_for_shelter_sign_in"
-            android:ems="15"
-            android:hint="@string/address"
-            android:inputType="textPostalAddress" />
-
-        <TextView
-            android:id="@+id/shelterPhoneNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/enter_phone_number_of_the_shelter"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/shelterPhoneNumberInput"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:autofillHints=""
-            android:background="@drawable/text_lines_for_shelter_sign_in"
-            android:ems="50"
-            android:hint="@string/phone_number"
-            android:inputType="phone" />
-
-        <TextView
-            android:id="@+id/shelterEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/enter_email_address_of_the_shelter"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/shelterEmailInput"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:autofillHints=""
-            android:background="@drawable/text_lines_for_shelter_sign_in"
-            android:ems="50"
-            android:hint="@string/email_address"
-            android:inputType="textEmailAddress" />
-
-        <TextView
-            android:id="@+id/shelterPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/enter_a_password"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/shelterPasswordInput"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:autofillHints=""
-            android:background="@drawable/text_lines_for_shelter_sign_in"
-            android:ems="50"
-            android:hint="@string/password"
-            android:inputType="textPassword" />
+    <EditText
+        android:id="@+id/shelterPasswordInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shelterEmailInput" />
 
 
-        <TextView
-            android:id="@+id/reenterShelterPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/Re_enter_password"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#FFFFFF" />
+    <EditText
+        android:id="@+id/reenterShelterPasswordInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/Re_enter_password"
+        android:inputType="textPassword"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shelterPasswordInput" />
 
-        <EditText
-            android:id="@+id/reenterShelterPasswordInput"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:autofillHints=""
-            android:background="@drawable/text_lines_for_shelter_sign_in"
-            android:ems="50"
-            android:hint="@string/Re_enter_password"
-            android:inputType="textPassword" />
+    <Button
+        android:id="@+id/createAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginBottom="75dp"
+        android:background="#FFF81F"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/create_account"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/createAccountButton"
-            android:layout_width="140dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
-            android:background="#FFF81F"
-            android:fontFamily="sans-serif-black"
-            android:text="@string/create_account"
-            android:textColor="#000000"
-            android:textSize="18sp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    </LinearLayout>
-</ScrollView>

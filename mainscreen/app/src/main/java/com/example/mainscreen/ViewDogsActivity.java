@@ -29,7 +29,7 @@ public class ViewDogsActivity extends AppCompatActivity implements DogListFragme
     Fragment listFragment;  //dog list fragment
     //dog_infor Fragment Objects
     ImageView ivDogImage;
-    TextView tvViewDogName, tvViewDogAge, tvViewDogGender, tvViewDogBreed, tvViewDogColor, tvViewDogSize, tvViewDogBio;
+    TextView tvViewDogName, tvViewDogAge, tvViewDogGender, tvViewDogBreed;
 
 
 
@@ -41,21 +41,17 @@ public class ViewDogsActivity extends AppCompatActivity implements DogListFragme
 
         //Variable Initializations
         SQLiteDatabase ggdDatabase = openOrCreateDatabase("ggd_Database", MODE_PRIVATE, null);
-        ivDogImage = (ImageView) findViewById(R.id.iv_dog_image);
-        tvViewDogName = (TextView) findViewById(R.id.tv_view_dog_name);
-        tvViewDogAge = (TextView) findViewById(R.id.tv_view_dog_age);
-        tvViewDogGender = (TextView) findViewById(R.id.tv_view_dog_gender);
-        tvViewDogBreed = (TextView) findViewById(R.id.tv_view_dog_breed);
-        tvViewDogColor = (TextView) findViewById(R.id.tv_view_dog_color);
-        tvViewDogSize = (TextView) findViewById(R.id.tv_view_dog_size);
-        tvViewDogBio = (TextView) findViewById(R.id.tv_view_dog_bio);
+        tvViewDogName = (TextView) findViewById(R.id.dogProfileName);
+        tvViewDogAge = (TextView) findViewById(R.id.dogProfileAge);
+        tvViewDogGender = (TextView) findViewById(R.id.dogProfileGender);
+        tvViewDogBreed = (TextView) findViewById(R.id.dogProfileBreed);
         orientation = getResources().getConfiguration().orientation;
         bundle = new Bundle();
         manager = new FragmentActivity().getSupportFragmentManager();
         if (orientation == Configuration.ORIENTATION_PORTRAIT)  {
             manager.beginTransaction()
                     .show(Objects.requireNonNull(manager.findFragmentById(R.id.fragment_dog_list)))
-                    .hide(Objects.requireNonNull(manager.findFragmentById(R.id.fragment_dog_infor)))
+                    .hide(Objects.requireNonNull(manager.findFragmentById(R.id.fragment_dog_profile_item)))
                     .commit();
         }//End of if statement to hide the details fragment
 
@@ -81,8 +77,8 @@ public class ViewDogsActivity extends AppCompatActivity implements DogListFragme
         manager = new FragmentActivity().getSupportFragmentManager();
         if (orientation == Configuration.ORIENTATION_PORTRAIT)  {   //If in portrait mode
             manager.beginTransaction()
-                    .hide(Objects.requireNonNull(manager.findFragmentById(R.id.fragment_dog_list_)))
-                    .show(Objects.requireNonNull(manager.findFragmentById(R.id.fragment_dog_infor)))
+                    .hide(Objects.requireNonNull(manager.findFragmentById(R.id.fragment_dog_list)))
+                    .show(Objects.requireNonNull(manager.findFragmentById(R.id.fragment_dog_profile_item)))
                     .addToBackStack(null)
                     .commit();
         }//End of if statement to hide the list fragment
@@ -91,9 +87,7 @@ public class ViewDogsActivity extends AppCompatActivity implements DogListFragme
         tvViewDogGender.setText(cursor.getString(1));
         tvViewDogBreed.setText(cursor.getString(2));
         tvViewDogAge.setText(cursor.getString(3));
-        tvViewDogColor.setText(cursor.getString(4));
-        tvViewDogSize.setText(cursor.getString(5));
-        tvViewDogBio.setText(cursor.getString(6));
+
 
     }//End of method onItemSelected
 

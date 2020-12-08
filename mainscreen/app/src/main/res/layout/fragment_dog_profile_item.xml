@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_dog_profile_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#000000"
+    tools:context=".DogInfoFragment">
+
+    <TextView
+        android:id="@+id/dogProfileName"
+        android:layout_width="284dp"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:baselineAligned="false"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFF81F"
+        app:fontFamily="sans-serif-black" />
+
+    <TextView
+        android:id="@+id/dogProfileBreed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dogProfileName"
+        android:background="#000000"
+        android:baselineAligned="false"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        app:fontFamily="sans-serif-condensed-medium" />
+
+    <TextView
+        android:id="@+id/dogProfileGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dogProfileBreed"
+        android:background="#000000"
+        android:baselineAligned="false"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        app:fontFamily="sans-serif-condensed-medium" />
+
+    <TextView
+        android:id="@+id/dogProfileAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dogProfileGender"
+        android:background="#000000"
+        android:baselineAligned="false"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        app:fontFamily="sans-serif-condensed-medium" />
+
+
+</LinearLayout>

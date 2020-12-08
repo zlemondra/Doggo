@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_dog_list"
-    android:name="com.example.mainscreen.DogListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+    android:id="@+id/fragment_dog_list"
+    android:name="com.example.mainscreen.DogListFragment"
     app:layoutManager="LinearLayoutManager"
     tools:context=".DogListFragment"
-    tools:listitem="@layout/fragment_dog_list" >
+    tools:listitem="@layout/fragment_dog_list"
+    android:orientation="vertical">
 
     <ListView
         android:id="@+id/lv_view_dogs"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:background="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+    </ListView>
+
+    <TextView
+        android:id="@android:id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </TextView>
+</LinearLayout>

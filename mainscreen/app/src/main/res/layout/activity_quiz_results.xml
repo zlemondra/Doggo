@@ -58,18 +58,5 @@
             android:textColor="#FFFFFF"
             app:fontFamily="sans-serif-condensed-medium" />
 
-        <Button
-            android:id="@+id/shelterContactInfo"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/dogNameResult"
-            android:background="#FFF81F"
-            android:clickable="true"
-            android:fontFamily="sans-serif-black"
-            android:text="Contact Shelter"
-            android:textColor="#000000"
-            android:textSize="15sp" />
-
     </RelativeLayout>
 
