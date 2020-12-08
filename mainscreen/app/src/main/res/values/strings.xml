@@ -54,6 +54,85 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="ggd_logo" />
+
+    <string-array name="dog_group_array">
+        <item>Dog Group</item>
+        <item>Sporting</item>
+        <item>Hound</item>
+        <item>Working</item>
+        <item>Terrier</item>
+        <item>Toy</item>
+        <item>Non-Sporting</item>
+        <item>Herding</item>
+        <item>No Preference</item>
+    </string-array>
+
+    <string-array name="dog_size_array">
+        <item>Dog Size</item>
+        <item>Giant</item>
+        <item>Large</item>
+        <item>Medium</item>
+        <item>Small</item>
+        <item>Toy</item>
+        <item>No Preference</item>
+    </string-array>
+
+    <string-array name="dog_gender_array">
+        <item>Dog Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+        <item>No Preference</item>
+    </string-array>
+
+    <string-array name="dog_color_array">
+        <item>Dog Color</item>
+        <item>Tan</item>
+        <item>Wheaten</item>
+        <item>White</item>
+        <item>Dark Brown</item>
+        <item>Blue</item>
+        <item>Light Silver</item>
+        <item>Red</item>
+        <item>Black</item>
+        <item>Silver</item>
+        <item>Cream</item>
+        <item>Rust</item>
+        <item>Brown</item>
+        <item>Apricot</item>
+        <item>Fawn</item>
+        <item>Chestnut</item>
+        <item>Gray</item>
+        <item>Beige</item>
+        <item>Gold</item>
+        <item>Dark Blue</item>
+        <item>Lilac</item>
+        <item>Orange</item>
+        <item>Light Brown</item>
+        <item>Yellow</item>
+        <item>No Preference</item>
+    </string-array>
+
+    <string-array name="dog_age_array">
+        <item>Dog Age</item>
+        <item>Less Than 1 Year Old</item>
+        <item>1 Years Old</item>
+        <item>2 Years Old</item>
+        <item>3 Years Old</item>
+        <item>4 Years Old</item>
+        <item>5 Years Old</item>
+        <item>6 Years Old</item>
+        <item>7 Years Old</item>
+        <item>8 Years Old</item>
+        <item>9 Years Old</item>
+        <item>10 Years Old</item>
+        <item>11 Years Old</item>
+        <item>12 Years Old</item>
+        <item>13 Years Old</item>
+        <item>14 Years Old</item>
+        <item>15+ Years Old</item>
+        <item>No Preference</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_user">Hello User!</string>
