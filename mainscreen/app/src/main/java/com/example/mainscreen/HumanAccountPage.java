@@ -18,6 +18,8 @@ public class HumanAccountPage extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        DatabaseHelper dbHelper = DatabaseHelper.getInstance();
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

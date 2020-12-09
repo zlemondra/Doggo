@@ -2,9 +2,12 @@ package com.example.mainscreen;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,11 +15,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import com.example.mainscreen.DatabaseHelper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.StringBuilder;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     //Variable Declarations
@@ -52,68 +57,59 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //Create a database to hold the tables
         final SQLiteDatabase ggdDatabase = openOrCreateDatabase("ggd.db", MODE_PRIVATE, null);
-        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS HumanUsers(FirstName VARCHAR, LastName VARCHAR, Email VARCHAR, Password VARCHAR);");
-        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS DogShelter(ShelterName VARCHAR, LocationPoint VARCHAR,  Email VARCHAR, Phone VARCHAR, Password VARCHAR, ID VARCHAR);");
-        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS DogProfile(DogName VARCHAR, Gender VARCHAR,  breed VARCHAR, Age VARCHAR, Color VARCHAR, Size VARCHAR, Bio VARCHAR, ID VARCHAR, ShelterID VARCHAR);");
-        cursor = ggdDatabase.rawQuery("SELECT * FROM HumanUsers;", null);
-        if (cursor.getCount() == 0) {
-            ggdDatabase.execSQL("INSERT INTO HumanUsers VALUES('admin', 'admin', 'amulkey21@yahoo.com', 'admin');");
-        }//End of if statement to initially populate the table HumanUsers
 
+        final DatabaseHelper dbHelper = DatabaseHelper.getInstance();
+        dbHelper.onCreate(ggdDatabase);
+        dbHelper.importSampleData(ggdDatabase);
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Delete this switch statement on release
-                switch (userChoice) {
-                    case 1:
-                        ggdDatabase.close();
-                        intent = new Intent(MainActivity.this, HumanUserWelcomeActivity.class);
-                        startActivity(intent);
-                        break;
-                    case 2:
-                        ggdDatabase.close();
-                        intent = new Intent(MainActivity.this, ShelterProfilePage.class);
-                        startActivity(intent);
-                        break;
-                    default:
-                        Toast.makeText(getApplicationContext(), "Please select a User Type to continue ", Toast.LENGTH_LONG).show();
-                        break;
-                }//End of switch to decide with sign up activity to go to
+                try {
+                    // Pull string entries
+                    email = etEmail.getText().toString().trim();
+                    String passwordIn = etPassword.getText().toString().trim();
 
-                /* Commented out until release
+                    // Query database
+                    String query = "SELECT HumanID, Email, Password FROM HumanUsers WHERE Email = '" + email +"';";
+                    cursor = ggdDatabase.rawQuery(query, null);
+                    cursor.moveToFirst();
 
-                email = etEmail.getText().toString().trim();
-                password = etPassword.getText().toString().trim();
+                    password = cursor.getString(2);
 
-                if (!email.equals("") && !password.equals(""))  {
-                    switch (userChoice) {
-                        case 1:
-                            //Add SQL query here
-                            if (true)   {//Replace true with a check if the email / passwerd combination is in the table Users
-                                intent = new Intent(MainActivity.this, HumanUserWelcomeActivity.class);
-                                startActivity(intent);
-                            } else  {
-                                Toast.makeText(getApplicationContext(), "Email / Password not found", Toast.LENGTH_LONG).show();
-                            }//End of if-else email and password are in the table
-                            break;
-                        case 2:
-                            //Add SQL query here
-                            if (true)   {//Replace true with a check if the email / passwerd combination is in the table Shelters
-                                intent = new Intent(MainActivity.this, ShelterWelcomeActivity.class);
-                                startActivity(intent);
-                            } else  {
-                                Toast.makeText(getApplicationContext(), "Email / Password not found", Toast.LENGTH_LONG).show();
-                            }//End of if-else email and password are in the table
-                            break;
-                        default:
-                            Toast.makeText(getApplicationContext(), "Please select a User Type to continue ", Toast.LENGTH_LONG).show();
-                            break;
-                    }//End of switch to decide with sign up activity to go to
-                }else   {
-                    Toast.makeText(getApplicationContext(), "All fields are required to continue ", Toast.LENGTH_LONG).show();
-                }//End of if/else to check that all fields have values
-                 */
+                    if (passwordIn.equals(password)) {
+                        dbHelper.setCurrentUser(cursor.getString(0));
+                        switch (userChoice) {
+                            case 1:
+                                //Add SQL query here
+                                if (true) {//Replace true with a check if the email / passwerd combination is in the table Users
+                                    intent = new Intent(MainActivity.this, HumanUserWelcomeActivity.class);
+                                    startActivity(intent);
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Email / Password not found", Toast.LENGTH_LONG).show();
+                                }//End of if-else email and password are in the table
+                                break;
+                            case 2:
+                                //Add SQL query here
+                                if (true) {//Replace true with a check if the email / passwerd combination is in the table Shelters
+                                    intent = new Intent(MainActivity.this, ShelterWelcomeActivity.class);
+                                    startActivity(intent);
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Email / Password not found", Toast.LENGTH_LONG).show();
+                                }//End of if-else email and password are in the table
+                                break;
+                            default:
+                                Toast.makeText(getApplicationContext(), "Please select a User Type to continue ", Toast.LENGTH_LONG).show();
+                                break;
+                        }//End of switch to decide with sign up activity to go to
+                    } else {
+                        Toast.makeText(getApplicationContext(), "All fields are required to continue ", Toast.LENGTH_LONG).show();
+                    }//End of if/else to check that all fields have values
+                } catch (NullPointerException npe) {
+                    Toast.makeText(getApplicationContext(), "Incorrect Login", Toast.LENGTH_LONG).show();
+                } catch (CursorIndexOutOfBoundsException cioobe){
+                    Toast.makeText(getApplicationContext(), "Incorrect Login", Toast.LENGTH_LONG).show();
+                }
             }//End of method onClick
         });//End of btnSignIn.setOnClickListener
 
@@ -122,12 +118,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View v) {
                 switch (userChoice) {
                     case 1:
-                        ggdDatabase.close();
                         intent = new Intent(MainActivity.this, HumanUserSignUpActivity.class);
                         startActivity(intent);
                         break;
                     case 2:
-                        ggdDatabase.close();
                         //do something for shelter registration
                         intent = new Intent(MainActivity.this, ShelterSignUpActivity.class);
                         startActivity(intent);

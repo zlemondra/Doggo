@@ -8,15 +8,44 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public DatabaseHelper(@Nullable Context context) {
+    private static String currentUser = null;
+    public static DatabaseHelper instance = new DatabaseHelper(null);
+
+    public static DatabaseHelper getInstance(){
+        return instance;
+    }
+
+    public static void setCurrentUser(String user){
+        currentUser = user;
+    }
+
+    public static String getCurrentUser(){
+        return currentUser;
+    }
+
+    private DatabaseHelper(@Nullable Context context) {
         super(context, "ggd.db", null, 1);
     }//End of the default constructor
 
+    public void importSampleData(SQLiteDatabase ggdDatabase){
+        ggdDatabase.execSQL("INSERT INTO HumanUsers (HumanID, FirstName, LastName, Email, Password) VALUES" +
+                            "('0', 'Mario', 'Bajenting', 'mbajenting@gmail.com', 'mario123'), " +
+                            "('1', 'admin', 'admin', 'amulkey21@yahoo.com', 'admin'), " +
+                            "('2', 'Lauren', 'Dyson', 'ldyson@live.com', 'lauren456'), " +
+                            "('3', 'Celeste', 'Tubon', 'ctubon@aol.com', 'celeste789');");
+        ggdDatabase.execSQL("INSERT INTO HumanQuiz (HumanID, DogGroup, DogAge, DogColor, DogGender, DogSize) VALUES" +
+                            "('0', 'No Preference', 'No Preference', 'No Preference', 'No Preference', 'No Preference')," +
+                            "('1', 'No Preference', 'No Preference', 'No Preference', 'No Preference', 'No Preference')," +
+                            "('2', 'No Preference', 'No Preference', 'No Preference', 'No Preference', 'No Preference')," +
+                            "('3', 'No Preference', 'No Preference', 'No Preference', 'No Preference', 'No Preference');");
+    }
+
     @Override
     public void onCreate(SQLiteDatabase ggdDatabase) {
-        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS HumanUsers(FirstName VARCHAR, LastName VARCHAR, Email VARCHAR, Password VARCHAR);");
+        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS HumanUsers(HumanID VARCHAR, FirstName VARCHAR, LastName VARCHAR, Email VARCHAR, Password VARCHAR);");
         ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS DogShelter(ShelterName VARCHAR, LocationPoint VARCHAR,  Email VARCHAR, Phone VARCHAR, Password VARCHAR, ID VARCHAR);");
         ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS DogProfile(DogName VARCHAR, Gender VARCHAR,  breed VARCHAR, Age VARCHAR, Color VARCHAR, Size VARCHAR, Bio VARCHAR, ID VARCHAR, ShelterID VARCHAR);");
+        ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS HumanQuiz(HumanID VARCHAR, DogGroup VARCHAR, DogAge VARCHAR, DogColor VARCHAR, DogGender VARCHAR, DogSize VARCHAR);");
     }//End of method onCreate to initially create the database
 
     @Override
