@@ -31,7 +31,7 @@ public class HumanUserSignUpActivity extends AppCompatActivity {
         etRPassword = (EditText) findViewById(R.id.et_rPassword);
         etEmail = (EditText) findViewById(R.id.et_email);
         final SQLiteDatabase ggdDatabase = openOrCreateDatabase("ggd.db", MODE_PRIVATE, null);
-        db = new DatabaseHelper(HumanUserSignUpActivity.this);
+        db = DatabaseHelper.getInstance();
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override

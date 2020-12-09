@@ -22,8 +22,8 @@
         android:id="@+id/btn_match_me"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="197dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="196dp"
         android:background="#FFF81F"
         android:text="@string/match_me"
         android:textColor="#000000"
@@ -34,8 +34,8 @@
         android:id="@+id/btn_view_matches"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="154dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="40dp"
         android:background="#FFF81F"
         android:text="@string/view_matches"
         android:textColor="#000000"
@@ -53,4 +53,14 @@
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_view_matches" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="162dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>

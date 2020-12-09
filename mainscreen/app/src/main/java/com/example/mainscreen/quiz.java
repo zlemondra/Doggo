@@ -89,6 +89,18 @@ public class quiz extends Activity {
         savebttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                DatabaseHelper dbHelper = DatabaseHelper.getInstance();
+                String humanID = dbHelper.getCurrentUser();
+                
+                ggdDatabase.execSQL("UPDATE HumanQuiz SET " +
+                                    "DogGroup = '" + breed +"'," +
+                                    "DogAge = '" + age +"'," +
+                                    "DogColor = '" + color +"'," +
+                                    "DogGender = '" + gender +"'," +
+                                    "DogSize = '" + breed + "'" +
+                                    "WHERE HumanID = '" + humanID + "'");
+
+
 
                 cursor = ggdDatabase.rawQuery("SELECT ID FROM dogProfile WHERE gender = " + gender + " AND breed = " + breed + " AND age = " + age + ";", null);
                 String[] dogIDs = new String[cursor.getCount()];

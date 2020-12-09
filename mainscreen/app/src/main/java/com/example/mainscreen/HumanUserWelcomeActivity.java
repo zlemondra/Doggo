@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +14,8 @@ public class HumanUserWelcomeActivity extends AppCompatActivity {
     Button btnMatchView;
     Button btnViewMap;
     Intent intent;
+    TextView welcome;
+    DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,9 @@ public class HumanUserWelcomeActivity extends AppCompatActivity {
         btnMatchMe = (Button) findViewById(R.id.btn_match_me);
         btnMatchView = (Button) findViewById(R.id.btn_view_matches);
         btnViewMap = (Button) findViewById(R.id.btn_view_map);
+        welcome = (TextView) findViewById(R.id.et_welcome);
+
+        dbHelper = DatabaseHelper.getInstance();
 
         btnMatchMe.setOnClickListener(new View.OnClickListener() {
             @Override
