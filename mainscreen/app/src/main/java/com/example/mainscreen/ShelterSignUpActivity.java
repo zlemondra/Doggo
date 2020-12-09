@@ -44,6 +44,7 @@ public class ShelterSignUpActivity extends AppCompatActivity {
                 }
                 else  if(!shelterName.getText().toString().trim().isEmpty()  && !shelterAddress.getText().toString().trim().isEmpty() && !shelterPhone.getText().toString().trim().isEmpty() &&
                         !shelterEmail.getText().toString().trim().isEmpty() && !shelterPassword.getText().toString().trim().isEmpty() && !retypeShelterPassword.getText().toString().trim().isEmpty())                    {
+
                     ggdDatabase.execSQL("INSERT INTO DogShelters VALUES('" + shelterName.getText().toString().trim() + "', '" + shelterAddress.getText().toString().trim() + "', '" + shelterPhone.getText().toString().trim() + "', '" + shelterEmail.getText().toString().trim() +
                             "', '" + shelterPassword.getText().toString().trim() + ");");
                 }
