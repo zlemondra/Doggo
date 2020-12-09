@@ -52,12 +52,35 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //Create a database to hold the tables
         final SQLiteDatabase ggdDatabase = openOrCreateDatabase("ggd.db", MODE_PRIVATE, null);
+        ggdDatabase.execSQL("DROP TABLE HumanUsers;");
+        ggdDatabase.execSQL("DROP TABLE DogShelter;");
+        ggdDatabase.execSQL("DROP TABLE DogProfile;");
         ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS HumanUsers(FirstName VARCHAR, LastName VARCHAR, Email VARCHAR, Password VARCHAR);");
         ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS DogShelter(ShelterName VARCHAR, LocationPoint VARCHAR,  Email VARCHAR, Phone VARCHAR, Password VARCHAR, ID VARCHAR);");
         ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS DogProfile(DogName VARCHAR, Gender VARCHAR,  breed VARCHAR, Age VARCHAR, Color VARCHAR, Size VARCHAR, Bio VARCHAR, ID VARCHAR, ShelterID VARCHAR);");
         cursor = ggdDatabase.rawQuery("SELECT * FROM HumanUsers;", null);
         if (cursor.getCount() == 0) {
             ggdDatabase.execSQL("INSERT INTO HumanUsers VALUES('admin', 'admin', 'amulkey21@yahoo.com', 'admin');");
+            ggdDatabase.execSQL("INSERT INTO HumanUsers VALUES('David', 'Wilson', 'dawil22@yahoo.com', 'righteousArk24');");
+            ggdDatabase.execSQL("INSERT INTO HumanUsers VALUES('Rachel', 'Levi', 'rach@yahoo.com', 'fThE27og');");
+            ggdDatabase.execSQL("INSERT INTO HumanUsers VALUES('Clark', 'Lewis', 'clle99@yahoo.com', 'LongBay28');");
+            ggdDatabase.execSQL("INSERT INTO HumanUsers VALUES('Donna', 'Bevins', 'dbevins@gmail.com', 'Donna1234');");
+        }//End of if statement to initially populate the table HumanUsers
+        cursor = ggdDatabase.rawQuery("SELECT * FROM DogShelter;", null);
+        if (cursor.getCount() != 1) {
+            ggdDatabase.execSQL("INSERT INTO DogShelter VALUES('Seal Beach Animal Care', '1700 Adolfo Lopez dr, Seal Beach, CA 90740', 'contact@sbacc.org', '5624304993', 'sbaccAdmin', '1');");
+            ggdDatabase.execSQL("INSERT INTO DogShelter VALUES('Long Beach Animal Control', '7700 E. Spring St, Long Beach, CA 90815', 'animalcare@longbeach.gov', '5625703053', 'lbcAc', '2');");
+            ggdDatabase.execSQL("INSERT INTO DogShelter VALUES('WAGS Pet Adoption', '6621 Westminster ave, Westminster, CA 92683', 'michellerusill@gmail.com', '7148876156', 'WAGSmr01', '3');");
+            ggdDatabase.execSQL("INSERT INTO DogShelter VALUES('Animal Assistance League', '15102 Jackson st, Midway City, CA 92655', 'aaloc@aaloc.org', '7148934393', 'AaLoC1234', '4');");
+            ggdDatabase.execSQL("INSERT INTO DogShelter VALUES('OC Small Paws', '17870 Newhope st ste 104-138, Fountain Valley, CA 92708', 'ocsp.adoptions@gmail.com', '7148154300', 'ocSPlewis22', '5');");
+        }//End of if statement to initially populate the table HumanUsers
+        cursor = ggdDatabase.rawQuery("SELECT * FROM DogProfile;", null);
+        if (cursor.getCount() != 1) {
+            ggdDatabase.execSQL("INSERT INTO DogProfile VALUES('Panda', 'Male', 'Chihuahua', '8', 'Black, White', 'Small', '', '1', '3');");
+            ggdDatabase.execSQL("INSERT INTO DogProfile VALUES('Atticus', 'Male', 'German Shepherd', '9', 'Brown, Black', 'Extra Large', '', '2', '3');");
+            ggdDatabase.execSQL("INSERT INTO DogProfile VALUES('Bean', 'Male', 'Pit Bull Terrier / Greyhound', '3', 'Black, White/Cream', 'Medium', '', '3', '1');");
+            ggdDatabase.execSQL("INSERT INTO DogProfile VALUES('Brandon', 'Male', 'Chihuahua', '1', 'White', 'Small', '', '4', '1');");
+            ggdDatabase.execSQL("INSERT INTO DogProfile VALUES('Brandy', 'Female', 'Mixed Breed', '4', 'Black, White', 'Medium', '', '5', '1');");
         }//End of if statement to initially populate the table HumanUsers
 
 
