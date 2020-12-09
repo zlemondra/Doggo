@@ -38,6 +38,8 @@
         -->
         <activity android:name=".ShelterProfilePage" />
         <activity android:name=".HumanUserSignUpActivity" />
+        <activity android:name=".DogProfileSubmitActivity"/>
+        <activity android:name=".ViewShelterDogs"/>
         <activity
             android:name=".ShelterProfile"
             android:label="@string/title_activity_shelter_profile"

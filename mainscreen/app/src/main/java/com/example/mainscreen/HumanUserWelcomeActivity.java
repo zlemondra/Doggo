@@ -41,7 +41,7 @@ public class HumanUserWelcomeActivity extends AppCompatActivity {
         btnMatchView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(HumanUserWelcomeActivity.this, DogListFragment.class);
+                intent = new Intent(HumanUserWelcomeActivity.this, ViewDogsActivity.class);
                 startActivity(intent);
             }//End of method onClick
         });//End of btnMatchView.setOnClickListener

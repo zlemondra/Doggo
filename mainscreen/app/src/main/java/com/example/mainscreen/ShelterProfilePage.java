@@ -20,26 +20,26 @@ public class ShelterProfilePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_profile_page);
 
+        final SQLiteDatabase ggdDatabase = openOrCreateDatabase("ggd.db", MODE_PRIVATE, null);
+
         shelterName = findViewById(R.id.shelterName);
         shelterEmail = findViewById(R.id.shelterEmailAddress);
         shelterPhone = findViewById(R.id.shelterPhoneNumber);
         newDog = (Button) findViewById(R.id.createProfileButton);
         viewDog = (Button) findViewById(R.id.viewProfileButton);
-        newDog = (Button) findViewById(R.id.btn_sign_in);
-        viewDog = (Button) findViewById(R.id.btn_sign_up);
         newDog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(ShelterProfilePage.this, DogProfileSubmitActivity.class);
-
+                ggdDatabase.close();
                 startActivity(intent);
             }
         });
         viewDog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(ShelterProfilePage.this, DogProfileSubmitActivity.class);
-
+                intent = new Intent(ShelterProfilePage.this, ViewShelterDogs.class);
+                ggdDatabase.close();
                 startActivity(intent);
             }
         });

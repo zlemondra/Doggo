@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ggdDatabase.execSQL("DROP TABLE HumanUsers;");
         ggdDatabase.execSQL("DROP TABLE DogShelter;");
         ggdDatabase.execSQL("DROP TABLE DogProfile;");
+
         ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS HumanUsers(FirstName VARCHAR, LastName VARCHAR, Email VARCHAR, Password VARCHAR);");
         ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS DogShelter(ShelterName VARCHAR, LocationPoint VARCHAR,  Email VARCHAR, Phone VARCHAR, Password VARCHAR, ID VARCHAR);");
         ggdDatabase.execSQL("CREATE TABLE IF NOT EXISTS DogProfile(DogName VARCHAR, Gender VARCHAR,  breed VARCHAR, Age VARCHAR, Color VARCHAR, Size VARCHAR, Bio VARCHAR, ID VARCHAR, ShelterID VARCHAR);");
@@ -89,10 +90,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             ggdDatabase.execSQL("INSERT INTO DogProfile VALUES('Brandy', 'Female', 'Mixed Breed', '4', 'Black, White', 'Medium', '', '5', '1');");
         }//End of if statement to initially populate the table HumanUsers
 
-
+        // Remove for Mario
+        /*
         final DatabaseHelper dbHelper = DatabaseHelper.getInstance();
         dbHelper.onCreate(ggdDatabase);
         dbHelper.importSampleData(ggdDatabase);
+        */
+
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,14 +107,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     String passwordIn = etPassword.getText().toString().trim();
 
                     // Query database
-                    String query = "SELECT HumanID, Email, Password FROM HumanUsers WHERE Email = '" + email +"';";
+                    String query = "SELECT Email, Password FROM HumanUsers WHERE Email = '" + email +"';";
                     cursor = ggdDatabase.rawQuery(query, null);
                     cursor.moveToFirst();
 
-                    password = cursor.getString(2);
+                    //password = cursor.getString(2); //from when i had humanID
+                    password = cursor.getString(1);
 
                     if (passwordIn.equals(password)) {
-                        dbHelper.setCurrentUser(cursor.getString(0));
+                        //dbHelper.setCurrentUser(cursor.getString(0));
                         switch (userChoice) {
                             case 1:
                                 //Add SQL query here
@@ -124,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                             case 2:
                                 //Add SQL query here
                                 if (true) {//Replace true with a check if the email / passwerd combination is in the table Shelters
-                                    intent = new Intent(MainActivity.this, ShelterWelcomeActivity.class);
+                                    intent = new Intent(MainActivity.this, ShelterProfilePage.class);
                                     startActivity(intent);
                                 } else {
                                     Toast.makeText(getApplicationContext(), "Email / Password not found", Toast.LENGTH_LONG).show();
