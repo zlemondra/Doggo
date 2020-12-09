@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class HumanUserWelcomeActivity extends AppCompatActivity {
     //Variable Declarations
     Button btnMatchMe;
+    Button btnMatchView;
     Button btnViewMap;
     Intent intent;
 
@@ -20,6 +21,7 @@ public class HumanUserWelcomeActivity extends AppCompatActivity {
 
         //Variable Initializations
         btnMatchMe = (Button) findViewById(R.id.btn_match_me);
+        btnMatchView = (Button) findViewById(R.id.btn_view_matches);
         btnViewMap = (Button) findViewById(R.id.btn_view_map);
 
         btnMatchMe.setOnClickListener(new View.OnClickListener() {
@@ -30,6 +32,13 @@ public class HumanUserWelcomeActivity extends AppCompatActivity {
             }//End of method onClick
         });//End of btnMatchMe.setOnClickListener
 
+        btnMatchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(HumanUserWelcomeActivity.this, DogListFragment.class);
+                startActivity(intent);
+            }//End of method onClick
+        });//End of btnMatchView.setOnClickListener
 
 
         btnViewMap.setOnClickListener(new View.OnClickListener() {
